@@ -1,0 +1,2 @@
+git restore nomedoarquivo
+git rm --cached nome do arquivo
