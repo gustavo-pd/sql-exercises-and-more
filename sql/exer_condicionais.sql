@@ -1,0 +1,15 @@
+SELECT * FROM sakila.film;
+SELECT IF (rental_rate > 0.99, 'CARO', 'BARATO') FROM sakila.film;
+SELECT title, IF (rental_rate > 0.99, 'CARO', 'BARATO') FROM sakila.film;
+-- CASE, USAMOS WHEN PARA INDICAR AS CONDIÇÕES E THEN PARA INDICAR O QUE QUEREMOS INDICAR PARA AQUELE VALOR,
+-- O ELSE É CASO NÃO FOR NENHUMA DAS OPÇÕES ACIMA
+-- END AS É O NOME PARA A COLUNA
+-- FROM PARA INDICAR DE QUAL DB ESTOU PEGANDO OS VALORES.
+SELECT title, rental_rate,
+	CASE
+		WHEN rental_rate = 0.99 THEN 'BARATO'
+        WHEN rental_rate = 2.99 THEN 'MÉDIO'
+        WHEN rental_rate = 4.99 THEN 'CARO'
+	ELSE rental_rate = 'NÃO CLASSIFICADO'
+END AS valor
+FROM sakila.film;
